@@ -1,0 +1,36 @@
+@import "../../../assets/css/variables.scss";
+.sidebar {
+  width: 80px;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  .slide-icon {
+    text-align: center;
+    margin: 30px 0 20px;
+    img {
+      width: 42px;
+      height: 42px;
+    }
+  }
+  li {
+    text-align: center;
+    line-height: 45px;
+    a {
+      color: #bbb;
+      font-size: $main-fiz;
+    }
+  }
+  .nav-toggle {
+    position: absolute;
+    left: 100px;
+    top: 10px;
+    background: rgb(0,0,0,0.8);
+    color: #bbbbbb;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}

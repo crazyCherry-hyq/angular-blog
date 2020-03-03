@@ -1,0 +1,13 @@
+<div class="sidebar">
+  <div>
+    <div class="slide-icon">
+      <img src="../../../assets/img/ayer-side.svg" alt="">
+    </div>
+    <ul>
+      <li *ngFor="let item of slideList">
+        <a [routerLink]="item.src">{{ item.title }}</a>
+      </li>
+    </ul>
+  </div>
+  <button class="nav-toggle">收</button>
+</div>
