@@ -6,11 +6,15 @@ import { slideList } from '../sildeList';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
-export class ItemComponent implements OnInit {
+export class SideItemComponent implements OnInit {
   slideList = slideList;
+  showSide =  false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  operateBtn(): void {
+    this.showSide = !this.showSide;
   }
 
 }

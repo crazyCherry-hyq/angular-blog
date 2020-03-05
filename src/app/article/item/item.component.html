@@ -1,0 +1,23 @@
+<div class="article-list">
+  <div *ngFor="let article of articleList | slice:0:2" class="article-box">
+    <a [routerLink]="['/detail', article.id]">
+      <div class="article-top">
+        <p class="title">{{ article.title }}</p>
+        <div class="type">
+          <div class="time">更新时间：{{ article.updateTime }}</div>
+          <div>类型：{{ article.type }}</div>
+        </div>
+      </div>
+      <div class="article-introduce">
+        <b class="introduce">介绍</b>
+        <p>{{ article.introduce }}</p>
+        <div class="introduce-img">
+          <img [src]="article.imgUrl" alt="">
+        </div>
+        <div *ngFor="let share of article.shareList">
+          <a class="share" [href]="share.src">{{ share.name }}</a>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

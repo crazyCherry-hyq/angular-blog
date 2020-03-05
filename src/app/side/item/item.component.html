@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div [class.show]="showSide" class="sidebar">
   <div>
     <div class="slide-icon">
       <img src="../../../assets/img/ayer-side.svg" alt="">
@@ -9,5 +9,5 @@
       </li>
     </ul>
   </div>
-  <button class="nav-toggle">收</button>
+  <button (click)="operateBtn()" class="nav-toggle">{{ showSide ? '放' : '收'}}</button>
 </div>
