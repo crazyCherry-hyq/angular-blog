@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {  Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import {  ActivatedRoute } from '@angular/router';
+import { ArticleForm } from '../article';
+import { provinceData, cityData, countyData } from '../address';
 
 @Component({
   selector: 'app-edit',
@@ -9,13 +9,27 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./edit.component.scss']
 })
 export class ArticleEditComponent implements OnInit {
+  typeList = ['生活', '技术', '实事', '旅行'];
+  provinceList = provinceData;
+  cityList = [];
+  countyList = [];
+  // tslint:disable-next-line:max-line-length
+  model = new ArticleForm(42, '', this.typeList[0], '', '', '', '', '');
   constructor(
-    private route: ActivatedRoute,
-    private  router: Router
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
+  }
+
+  changeProvince() {
+    this.cityList = cityData[this.model.province];
+  }
+  changeCity() {
+    this.countyList = countyData[this.model.city];
+  }
+  onSubmit() {
+    console.warn();
   }
 }

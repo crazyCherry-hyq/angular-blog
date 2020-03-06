@@ -9,12 +9,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArticleDetailComponent implements OnInit {
   details;
+  id;
   constructor(
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.details = articleList.filter(item => item.id === id);
+    this.id = +this.route.snapshot.paramMap.get('id');
+    this.details = articleList.filter(item => item.id === this.id);
   }
 }

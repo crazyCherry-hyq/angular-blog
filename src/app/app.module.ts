@@ -9,6 +9,7 @@ import { SvgComponent } from './svg/svg.component';
 import { ArticleItemComponent } from './article/item/item.component';
 import { ArticleDetailComponent } from './article/detail/detail.component';
 import { ArticleEditComponent } from './article/edit/edit.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { ArticleEditComponent } from './article/edit/edit.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,55 @@
-<p>edit works!</p>
+<div class="article-edit">
+  <h2>发布文章</h2>
+  <div class="container">
+    <form (ngSubmit)="onSubmit()" #articleForm="ngForm">
+      <div class="form-group">
+        <label for="name">作者：</label>
+        <input class="form-control" type="text" [(ngModel)]="model.name" name="name" id="name" required #name="ngModel" placeholder="请输入作者名称">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          必填项
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="title">标题：</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="model.title" name="title" required placeholder="请输入标题" #title="ngModel">
+        <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+          必填项
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="type">文章类型：</label>
+        <select class="form-control" name="type" id="type" [(ngModel)]="model.type" #type="ngModel" required>
+          <option *ngFor="let type of typeList" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>地址：</label>
+        <div class="row">
+          <div class="col-lg-2">
+            <select class="form-control" name="province" [(ngModel)]="model.province" (change)="changeProvince()">
+              <option *ngFor="let item of provinceList" [value]="item.id">{{ item.name }}</option>
+            </select>
+          </div>
+          <div class="col-lg-2">
+            <select class="form-control" name="province" id="city" [(ngModel)]="model.city" (click)="changeCity()">
+              <option *ngFor="let item of cityList" [value]="item.id">{{ item.name }}</option>
+            </select>
+          </div>
+          <div class="col-lg-2">
+            <select class="form-control" name="province" id="county" [(ngModel)]="model.county">
+              <option *ngFor="let item of countyList" [value]="item.id">{{ item.name }}</option>
+            </select>
+          </div>
+          <div class="col-lg-3">
+            <input class="form-control" type="text" [(ngModel)]="model.address">
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="content">内容描述：</label>
+        <textarea name="content" id="content" rows="10"></textarea>
+      </div>
+      <button class="btn btn-success" type="submit" [disabled]="!articleForm.form.valid">提交</button>
+    </form>
+  </div>
+</div>
